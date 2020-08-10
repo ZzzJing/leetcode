@@ -10,7 +10,6 @@ package tree
 
 func sortedArrayToBST(nums []int) *TreeNode {
 	length := len(nums)
-
 	if length == 0 {
 		return nil
 	}
