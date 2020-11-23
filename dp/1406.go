@@ -1,12 +1,9 @@
-package main
-
-import "fmt"
+package dp
 
 func stoneGameIII(stoneValue []int) string {
 	subMap := make(map[int]int)
 	helperMap := make(map[int]int)
 	length := len(stoneValue)
-
 	var getSum func(start int) int
 	getSum = func(start int) int {
 		if _, exist := subMap[start]; exist {
@@ -25,8 +22,11 @@ func stoneGameIII(stoneValue []int) string {
 		if _, exist := helperMap[start]; exist {
 			return helperMap[start]
 		}
-		if start >= length-3 {
-			return getSum(start)
+		if start == length-1 {
+			return stoneValue[start]
+		}
+		if start >= length {
+			return 0
 		}
 		helperMap[start+1] = helper(start + 1)
 		helperMap[start+2] = helper(start + 2)
@@ -52,9 +52,4 @@ func minIn3(q, p, z int) int {
 	} else {
 		return z
 	}
-}
-
-func main() {
-	ls := []int{2, 3, 4, 5, 6}
-	fmt.Println(stoneGameIII(ls))
 }
