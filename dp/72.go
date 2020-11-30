@@ -1,5 +1,7 @@
 package dp
 
+import "sort"
+
 func minDistance(word1 string, word2 string) int {
 	l1 := len(word1)
 	l2 := len(word2)
@@ -40,6 +42,9 @@ func min72(args ...int) int {
 			min = v
 		}
 	}
-
+	a := []int{2, 4, 5, 3, 1, 7}
+	sort.Slice(a, func(i, j int) bool {
+		return i < j
+	})
 	return min
 }
