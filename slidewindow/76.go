@@ -1,7 +1,5 @@
 package slidewindow
 
-import "golang.org/x/tools/go/ssa/interp/testdata/src/fmt"
-
 func minWindow(s string, t string) string {
 	need, window := map[byte]int{}, map[byte]int{}
 	for i := 0; i < len(t); i++ {
@@ -44,6 +42,5 @@ func minWindow(s string, t string) string {
 	if ansL == -1 {
 		return ""
 	}
-	fmt.Println(ansL, length)
 	return s[ansL : ansL+length]
 }
