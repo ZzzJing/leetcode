@@ -4,14 +4,13 @@ func reverseList(head *ListNode) *ListNode {
 	if head == nil || head.Next == nil {
 		return head
 	}
-	node := head
 	now := head
 	next := head.Next
 	for next.Next != nil {
+		tmp := now
 		now = next
 		next = next.Next
-		now.Next = node
-		node = now
+		now.Next = tmp
 	}
 	next.Next = now
 	head.Next = nil
